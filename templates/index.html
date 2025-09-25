@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Séries HDR Torrent</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Séries HDR Torrent</h1>
+    </header>
+
+    <main>
+        {% if series %}
+            <div class="grid">
+                {% for s in series %}
+                    <div class="card">
+                        <a href="{{ url_for('detalhes') }}?url={{ s.link }}">
+                            <img src="{{ s.img }}" alt="{{ s.titulo }}">
+                            <h2>{{ s.titulo }}</h2>
+                        </a>
+                        <p>{{ s.tipo }} | {{ s.qualidade }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="empty">Nenhuma série encontrada.</p>
+        {% endif %}
+    </main>
+</body>
+</html>
+
+
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ titulo }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>{{ titulo }}</h1>
+        <a href="{{ url_for('index') }}" class="back-btn">⬅ Voltar</a>
+    </header>
+
+    <main>
+        {% if episodios %}
+            <div class="episodios-list">
+                {% for ep in episodios %}
+                    <div class="episodio">
+                        <span>{{ ep.titulo }}</span>
+                        <a href="{{ ep.magnet }}" class="btn">MAGNET LINK</a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="empty">Nenhum episódio encontrado.</p>
+        {% endif %}
+    </main>
+</body>
+</html>
+
+
+
+
